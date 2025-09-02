@@ -1,14 +1,7 @@
-import "./App.css";
+import Body from "./components/Body";
 
 function App() {
-  return (
-    <>
-      <p>Netflix-gpt</p>
-      <h1 class="flex justify-center text-3xl font-bold underline text-green-800">
-        Hello world!
-      </h1>
-    </>
-  );
+  return <Body />;
 }
 
 export default App;

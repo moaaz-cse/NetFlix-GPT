@@ -2,6 +2,8 @@
 
 - Create react app using vite
 - Configured tailwindcss
+- Header
+- Login Form
 
 # Features
 
