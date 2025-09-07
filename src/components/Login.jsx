@@ -1,6 +1,11 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/Validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -18,13 +23,42 @@ const Login = () => {
     const nameVal = name?.current?.value?.trim(); // safe access with optional chaining
     // Validate form data
     let errorInputs = checkValidData(
+      isSignInForm,
       emailVal,
       passwordVal,
       nameVal && nameVal.length > 0 ? nameVal : undefined // pass only if not empty
     );
     setErrorMessage(errorInputs);
+    if (errorInputs) return;
 
-    // If no error, proceed...
+    // If no error, sign in/signUp
+    if (!isSignInForm) {
+      //Sign Up Logic
+      createUserWithEmailAndPassword(auth, emailVal, passwordVal)
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    } else {
+      //Sign In Logic
+      signInWithEmailAndPassword(auth, emailVal, passwordVal)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    }
   };
 
   const toggleSignUpForm = () => {
