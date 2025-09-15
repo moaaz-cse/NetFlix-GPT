@@ -7,12 +7,11 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BANNER } from "../utils/constant";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -57,7 +56,6 @@ const Login = () => {
                   displayName: displayName,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -76,8 +74,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-
-          navigate("/browse");
           // console.log(user);
         })
         .catch((error) => {
@@ -96,8 +92,9 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          className="w-screen max-h-2/5"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/cb72daa5-bd8d-408b-b949-1eaef000c377/web/IN-en-20250825-TRIFECTA-perspective_a3209894-0b01-4ddb-b57e-f32165e20a3f_large.jpg"
+          className="max-h-2/5 p-0 m-0"
+          style={{ maxwidth: "1905px" }}
+          src={BANNER}
           alt="banner"
         />
       </div>

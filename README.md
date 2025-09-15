@@ -15,6 +15,10 @@
 - updated profile
 - implemented sign out
 - bug fixes.
+- redirect /browse to login page and vice-versa.
+- Unsubscribe to the onAuthStateChanged callback.
+- Registered for TMDB website and get access token.
+- Get data fromm tmdb now movies.
 
 # Features
 
