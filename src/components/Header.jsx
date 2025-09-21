@@ -34,17 +34,14 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className="flex justify-between items-center absolute w-screen px-8 py-4 bg-gradient-to-b from-black z-10"
-      style={{ maxwidth: "1905px" }}
-    >
-      <img className="w-44" src={LOGO} alt="logo" />
+    <header className="w-screen absolute px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-center md:justify-between">
+      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
       {user && (
-        <div className="flex px-4 gap-1.5">
+        <div className="flex p-2 justify-between">
           <img
             alt="user icon"
             src={PROFILE_PIC}
-            className="h-10 w-10 rounded-lg"
+            className=" hidden md:block w-12 h-12"
           />
           <button
             className="text-lg font-bold text-white cursor-pointer"

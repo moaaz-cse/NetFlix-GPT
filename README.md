@@ -19,6 +19,12 @@
 - Unsubscribe to the onAuthStateChanged callback.
 - Registered for TMDB website and get access token.
 - Get data fromm tmdb now movies.
+- Created custom hook for nowPlayingMovie
+- Create movieSlice
+- Planning for main and secondary container
+- fetch data for trailer video
+- update store with trailer video data
+- embeded the youtube video and make it auto play and mute
 
 # Features
 
