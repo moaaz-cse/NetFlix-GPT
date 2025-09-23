@@ -30,6 +30,10 @@
 - MovieCard
 - TMDB image CDN URL
 - movies-custom hooks.
+- GPT search page
+- GPT search bar
+- Multilingual
+-
 
 # Features
 
