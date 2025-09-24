@@ -2,7 +2,6 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
-  //   console.log("movies", movies);
   if (!movies) return;
 
   return (
@@ -11,7 +10,11 @@ const MovieList = ({ title, movies }) => {
       <div className="flex overflow-x-scroll scrollbar-hide px-3">
         <div className="flex gap-2">
           {movies.map((movie) => (
-            <MovieCard key={movie.id} posterPath={movie.poster_path} />
+            <MovieCard
+              key={movie.id}
+              posterPath={movie.poster_path}
+              id={movie.id}
+            />
           ))}
         </div>
       </div>
